@@ -45,6 +45,66 @@
           </div>
         </div>
       </el-collapse-item>
+      <el-collapse-item title="获取公钥" name="getPub">
+        <div class="info">
+          <div class="fl">
+            <h2>nabox.getPub({address})</h2>
+            <p>参数说明：</p>
+            <p>address：必填，已授权的地址</p>
+            <pre>
+              let data = {
+                address: "tNULSeBaMvH8TmMZUPQKvc19qeLrD7oN643aBL"
+              }
+              let naboxInfo = await nabox.getPub(data);
+              console.log(naboxInfo);
+            </pre>
+          </div>
+          <div class="fr">
+            地址:
+            <el-input placeholder="" v-model="$store.getters.getAddressInfo.accounts" :disabled="true"></el-input>
+            <el-button type="primary" @click="getPub">获取公钥</el-button>
+          </div>
+        </div>
+      </el-collapse-item>
+      <el-collapse-item title="获取账户余额" name="getBalance">
+        <div class="info">
+          <div class="fl">
+            <h2>nabox.getBalance({})</h2>
+            <p>参数说明：</p>
+            <p>address：必填，地址</p>
+            <p>chain：必填，链</p>
+            <p>chainId：必填，链id</p>
+            <p>assetId：必填，资产id</p>
+            <pre>
+              let data = {
+                address:"tNULSeBaMvH8TmMZUPQKvc19qeLrD7oN643aBL",
+                chain:"NULS",
+                chainId:"2",
+                assetId:"1",
+              }
+              let naboxInfo = await nabox.getBalance(data);
+              console.log(naboxInfo);
+            </pre>
+          </div>
+          <div class="fr">
+            <el-form :model="balanceForm" :rules="balanceRules" ref="balanceForm">
+              <el-form-item label="from">
+                <el-input v-model="balanceForm.address">
+                </el-input>
+              </el-form-item>
+              <el-form-item label="资产" prop="assets">
+                <el-select v-model="balanceForm.assets" placeholder="请选择资产">
+                  <el-option v-for="item of assetsList" :label="item.symbol" :key="item.ids" :value="item.ids">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary" @click="submitBalance('balanceForm')">获取余额</el-button>
+              </el-form-item>
+            </el-form>
+          </div>
+        </div>
+      </el-collapse-item>
       <el-collapse-item title="发送普通交易" name="tradingNabox">
         <div class="info">
           <div class="fl">
@@ -109,14 +169,74 @@
           </div>
         </div>
       </el-collapse-item>
-      <el-collapse-item title="可控 Controllability">
-        <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
-        <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+      <el-collapse-item title="普通交易签名" name="signTransaction">
+        <div class="info">
+          <div class="fl">
+            <h2>nabox .signTransaction(tx)</h2>
+            <p>参数说明：</p>
+            <p>from 可选(插件当前连接的帐户)</p>
+            <p>to：必填，接受地址</p>
+            <p>data：必填</p>
+            <p>value：必填，转账金额</p>
+            <p>assetChainId：必填 链id</p>
+            <p>assetId：必填 资产id</p>
+            <p>contractAddress：可选(如果是合同资产)</p>
+            <pre>
+              // On Ethereum Bsc Heco
+              let = tx{
+                from: "0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3",
+                to: "0x89D24A7b4cCB1b6fAA2625Fe562bDd9A23260359",
+                data: "0x",
+                value: "0x00",
+              }
+              // On NULS NERVE
+              const tx = {
+                from: "TNVTdTSPVcqUCdfVYWwrbuRtZ1oM6GpSgsgF5",
+                to: "TNVTdTSPSSLNLNCQMxksTiWj7BTZccXhMyjXk",
+                value: "1",
+                assetChainId: 2,
+                assetId: 1,
+                contractAddress: "", // (if it is a contract asset)
+              }
+              let resData = await nabox.signTransaction(tx);
+              console.log(resData);
+            </pre>
+          </div>
+          <div class="fl" style="width: 30rem">
+            <!--<el-form :model="tradingForm" :rules="tradingRules" ref="tradingForm">
+              <el-form-item label="from" prop="from">
+                <el-input v-model="tradingForm.from">
+                </el-input>
+              </el-form-item>
+              <el-form-item label="to" prop="to">
+                <el-input v-model="tradingForm.to">
+                </el-input>
+              </el-form-item>
+              <el-form-item label="资产" prop="assets">
+                <el-select v-model="tradingForm.assets" placeholder="请选择资产">
+                  <el-option v-for="item of assetsList" :label="item.symbol" :value="item.symbol">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="金额" prop="amount">
+                <el-input v-model="tradingForm.amount">
+                </el-input>
+              </el-form-item>
+              <el-form-item label="备注">
+                <el-input type="textarea" maxlength="200" show-word-limit v-model="tradingForm.remarks">
+                </el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary" @click="submitTrading('tradingForm')">发送</el-button>
+              </el-form-item>
+            </el-form>-->
+          </div>
+        </div>
       </el-collapse-item>
     </el-collapse>
 
     <div class="font18 fW600">事件</div>
-    <el-collapse accordion>
+    <!--<el-collapse accordion>
       <el-collapse-item>
         <template slot="title">
           一致性 Consistency<i class="header-icon el-icon-info"></i>
@@ -137,7 +257,7 @@
         <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
         <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
       </el-collapse-item>
-    </el-collapse>
+    </el-collapse>-->
   </div>
 </template>
 
@@ -153,6 +273,16 @@
         rules: {
           region: [
             {required: true, message: '请选择授权链', trigger: 'change'}
+          ]
+        },
+
+        balanceForm: {
+          address: "",
+          assets: '',
+        },
+        balanceRules: {
+          assets: [
+            {required: true, message: '请选择资产', trigger: 'change'}
           ]
         },
 
@@ -183,19 +313,22 @@
     created() {
     },
     mounted() {
-      console.log(this.$store.getters.getAddressInfo);
-      this.tradingForm.from = this.$store.getters.getAddressInfo.accounts
     },
     methods: {
 
       //切换
       async changeCollapse(e) {
-        if (e === 'tradingNabox') {
+        if (e === 'tradingNabox' || e === 'getBalance') {
+          this.tradingForm.from = this.$store.getters.getAddressInfo.accounts;
+          this.balanceForm.address = this.$store.getters.getAddressInfo.accounts;
           let data = {address: this.$store.getters.getAddressInfo.accounts, chain: "NULS"};
-          console.log(data);
+          //console.log(data);
           let resData = await nabox.assetsList(data);
-          console.log(resData);
+          //console.log(resData);
           if (resData.length !== 0) {
+            resData.map(item => {
+              item.ids = item.chainId.toString() + item.assetId.toString();
+            });
             this.assetsList = resData
           }
         }
@@ -220,11 +353,35 @@
         });
       },
 
+      //获取公钥
+      async getPub() {
+        let resData = await nabox.getPub({address: this.$store.getters.getAddressInfo.accounts});
+        console.log(resData);
+      },
+
+      //获取账户资产余额
+      submitBalance(formName) {
+        this.$refs[formName].validate(async (valid) => {
+          if (valid) {
+            //console.log(this.balanceForm);
+            let assetsInfo = this.assetsList.filter(obj => obj.ids === this.balanceForm.assets)[0];
+            let data = {
+              address: this.$store.getters.getAddressInfo.accounts,
+              chain: assetsInfo.chain,
+              chainId: assetsInfo.chainId,
+              assetId: assetsInfo.assetId,
+            };
+            let resData = await nabox.getBalance(data);
+            console.log(resData);
+          }
+        });
+      },
+
       //发送普通交易
       async submitTrading(formName) {
         this.$refs[formName].validate(async (valid) => {
           if (valid) {
-            console.log(this.tradingForm);
+            //console.log(this.tradingForm);
             let tx = {
               from: this.tradingForm.from,
               to: this.tradingForm.to,
