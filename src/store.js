@@ -6,6 +6,11 @@ export default new Vuex.Store({
   state: {
     addressInfo:{},
   },
+  getters: {
+    getAddressInfo(state) {
+      return state.addressInfo
+    }
+  },
   mutations: {
     setAddressInfo(state, data) {
       state.addressInfo = data;

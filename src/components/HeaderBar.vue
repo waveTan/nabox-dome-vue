@@ -5,15 +5,12 @@
         <img class="clicks" @click="toUrl('home')" :src="logoSvg">
       </div>
       <div class="nav fr">
-        <div class="fl" v-show="false"> {{height}}</div>
-
         <div class="fl">
-          <div v-if="accountInfo.accounts" class="click font14" @click="showAccount"> {{ superLong(accountInfo.accounts)
-            }}
+          <div v-if="accountInfo.accounts" class="click font14" @click="showAccount">
+            {{superLong(accountInfo.accounts)}}
           </div>
           <div v-else class="on-link click font14" @click="onLink">{{$t('set.set10')}}</div>
         </div>
-
         <div class="language fr font14 click" @click="selectLanguage">{{lang === 'en' ? '简体中文':'English' }}</div>
       </div>
     </div>
@@ -68,19 +65,12 @@
       };
     },
     created() {
+
+    },
+    async mounted() {
       console.log(window.nabox, "created");
       if (typeof window.nabox !== "undefined") {
-
-        if (window.nabox.connected) {
-          this.$store.commit("setAccount", window.nabox);
-          this.accountInfo = window.nabox;
-        } else {
-          this.$store.commit("setAccount", {});
-          this.accountInfo = {};
-        }
-        //3、启动监听事件
-        this.naboxAccount();
-
+        this.init();
         /*
         nabox.on("changeAllowSites", (error, payload) => {
           console.log(error, payload, "changeAllowSites");
@@ -106,16 +96,28 @@
           console.log(error, payload, "disconnect");
         });
         */
-
+      }else{
+        setTimeout(()=>{
+          this.init();
+        },1000)
       }
-    },
-    async mounted() {
-
 
     },
     watch: {},
     components: {},
     methods: {
+
+      init(){
+        if (window.nabox.connected) {
+          this.$store.commit("setAddressInfo", window.nabox);
+          this.accountInfo = this.$store.getters.getAddressInfo;
+        } else {
+          this.$store.commit("setAddressInfo", {});
+          this.accountInfo = {};
+        }
+        //3、启动监听事件
+        this.naboxAccount();
+      },
 
       /**
        * 语言切换
@@ -183,8 +185,8 @@
         if (naboxInfo) {
           let newAddressInfo = {address: naboxInfo};
           console.log(newAddressInfo);
-          this.$store.commit("setAccount", newAddressInfo);
-          console.log(this.$store.state.addressInfo);
+          this.$store.commit("setAddressInfo", newAddressInfo);
+          console.log(this.$store.getters.getAddressInfo);
           this.naboxAccount();
           this.connectDialog = false;
           //this.toUrl('home');
