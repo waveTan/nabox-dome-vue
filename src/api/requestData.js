@@ -130,6 +130,26 @@ export async function getAddressInfoByAddress(address) {
 }
 
 /**
+ * 获取地址信息根据地址
+ * @param address
+ * @returns {Promise<any>}
+ */
+export async function getContract(address) {
+  return await post('/', 'getContract', [address])
+    .then((response) => {
+      //console.log(response);
+      if (response.hasOwnProperty("result")) {
+        return {success: true, data: response.result}
+      } else {
+        return {success: false, data: response}
+      }
+    })
+    .catch((error) => {
+      return {success: false, data: error};
+    });
+}
+
+/**
  * 获取地址的余额及nonce根据地址
  * @param  address
  * @param  assetId

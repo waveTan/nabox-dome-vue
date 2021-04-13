@@ -4,8 +4,10 @@
  * @author: Wave
  */
 "use strict";
-//正式、测试网络的api
+//正式网络的api
 export let API_URL = 'https://public1.nuls.io';
+//链id
+export const API_CHAIN_ID = 1;
 //请求最迟时间
 export const API_TIME = '9000';
 //浏览器连接地址

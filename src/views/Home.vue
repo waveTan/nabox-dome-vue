@@ -203,7 +203,7 @@
             </pre>
           </div>
           <div class="fl" style="width: 30rem">
-            <!--<el-form :model="tradingForm" :rules="tradingRules" ref="tradingForm">
+            <el-form :model="tradingForm" :rules="tradingRules" ref="tradingForm">
               <el-form-item label="from" prop="from">
                 <el-input v-model="tradingForm.from">
                 </el-input>
@@ -227,9 +227,61 @@
                 </el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="submitTrading('tradingForm')">发送</el-button>
+                <el-button type="primary" @click="submitTradingSign('tradingForm')">发送</el-button>
               </el-form-item>
-            </el-form>-->
+            </el-form>
+          </div>
+        </div>
+      </el-collapse-item>
+      <el-collapse-item title="发送合约交易" name="sendContractTransaction">
+        <div class="info">
+          <div class="fl">
+            <h2>nabox .signTransaction(tx)</h2>
+            <p>参数说明：</p>
+            <p>from 可选(插件当前连接的帐户)</p>
+            <p>to：必填，接受地址</p>
+            <p>data：必填</p>
+            <p>value：必填，转账金额</p>
+            <p>assetChainId：必填 链id</p>
+            <p>assetId：必填 资产id</p>
+            <p>contractAddress：可选(如果是合同资产)</p>
+            <pre>
+              // On Ethereum Bsc Heco
+              let = tx{
+                from: "0xbc28Ea04101F03aA7a94C1379bc3AB32E65e62d3",
+                to: "0x89D24A7b4cCB1b6fAA2625Fe562bDd9A23260359",
+                data: "0x",
+                value: "0x00",
+              }
+              // On NULS NERVE
+              const tx = {
+                from: "TNVTdTSPVcqUCdfVYWwrbuRtZ1oM6GpSgsgF5",
+                to: "TNVTdTSPSSLNLNCQMxksTiWj7BTZccXhMyjXk",
+                value: "1",
+                assetChainId: 2,
+                assetId: 1,
+                contractAddress: "", // (if it is a contract asset)
+              }
+              let resData = await nabox.signTransaction(tx);
+              console.log(resData);
+            </pre>
+          </div>
+          <div class="fl" style="width: 30rem">
+            <el-form :model="callContractForm" :rules="callContractRules" ref="callContractForm">
+              <el-form-item label="合约地址" prop="contractAddress">
+                <el-input v-model="callContractForm.contractAddress">
+                </el-input>
+              </el-form-item>
+              <el-form-item label="合约方法" prop="assets" v-show="callContractForm.contractAddress">
+                <el-select v-model="callContractForm.methods" placeholder="请选择合约方法">
+                  <el-option v-for="item of methodsList" :label="item.name" :value="item.name">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item v-show="callContractForm.contractAddress">
+                <el-button type="primary" @click="submitTradingSign('tradingForm')">调用合约</el-button>
+              </el-form-item>
+            </el-form>
           </div>
         </div>
       </el-collapse-item>
@@ -262,6 +314,7 @@
 </template>
 
 <script>
+  import {getContract} from "./../api/requestData"
 
   export default {
     data() {
@@ -308,17 +361,40 @@
           ]
         },
         assetsList: [],//资产列表
+
+        callContractForm: {
+          contractAddress: '',
+        },
+        callContractRules: {
+          contractAddress: [
+            {required: true, message: '请输入合约地址', trigger: 'change'}
+          ],
+        },
+        methodsList:[],//合约方法列表
       };
     },
     created() {
     },
     mounted() {
     },
+    watch: {
+      "callContractForm.contractAddress": {
+        immediate: false,
+        async handler(val, old) {
+          console.log(val, old);
+          let addressInfo = await getContract(val);
+          console.log(addressInfo);
+          if(addressInfo.success){
+              this.methodsList = addressInfo.data.methods
+          }
+        }
+      },
+    },
     methods: {
 
       //切换
       async changeCollapse(e) {
-        if (e === 'tradingNabox' || e === 'getBalance') {
+        if (e === 'tradingNabox' || e === 'getBalance' || e === 'signTransaction') {
           this.tradingForm.from = this.$store.getters.getAddressInfo.accounts;
           this.balanceForm.address = this.$store.getters.getAddressInfo.accounts;
           let data = {address: this.$store.getters.getAddressInfo.accounts, chain: "NULS"};
@@ -331,6 +407,8 @@
             });
             this.assetsList = resData
           }
+        } else if (e === 'sendContractTransaction') {
+          this.tradingForm.from = this.$store.getters.getAddressInfo.accounts;
         }
       },
 
@@ -405,6 +483,36 @@
           }
         });
       },
+
+      //发送普通交易
+      async submitTradingSign(formName) {
+        this.$refs[formName].validate(async (valid) => {
+          if (valid) {
+            //console.log(this.tradingForm);
+            let tx = {
+              from: this.tradingForm.from,
+              to: this.tradingForm.to,
+              remarks: this.tradingForm.remarks,
+            };
+            if (this.tradingForm.assets === 'NULS' || this.tradingForm.assets === 'NERVE') {
+              tx.value = this.tradingForm.amount;
+              let assetInfo = this.assetsList.filter(obj => obj.symbol === this.tradingForm.assets)[0];
+              console.log(assetInfo);
+              tx.assetChainId = assetInfo.chainId;
+              tx.assetId = assetInfo.assetId;
+              tx.contractAddress = assetInfo.contractAddress ? assetInfo.contractAddress : "";
+            } else {
+
+            }
+            console.log(tx, "tx");
+            let resData = await nabox.signTransaction(tx);
+            console.log(resData);
+          } else {
+            return false;
+          }
+        });
+      },
+
 
     }
   }
