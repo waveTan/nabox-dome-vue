@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7d89f449-ba41-4462-9a2e-5195604a87c4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/config/beta.js" afterPath="$PROJECT_DIR$/config/beta.js" />
-      <change beforePath="$PROJECT_DIR$/config/prod.js" afterPath="$PROJECT_DIR$/config/prod.js" />
-      <change beforePath="$PROJECT_DIR$/src/api/requestData.js" afterPath="$PROJECT_DIR$/src/api/requestData.js" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" afterPath="$PROJECT_DIR$/src/config.js" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.vue" afterPath="$PROJECT_DIR$/src/views/Home.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,8 +20,8 @@
       <file leaf-file-name="Home.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="277" column="30" lean-forward="false" selection-start-line="277" selection-start-column="30" selection-end-line="277" selection-end-column="30" />
+            <state relative-caret-position="345">
+              <caret line="600" column="19" lean-forward="false" selection-start-line="600" selection-start-column="19" selection-end-line="600" selection-end-column="19" />
               <folding>
                 <element signature="n#el-collapse-item#0;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#el-collapse-item#1;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
@@ -34,25 +30,30 @@
                 <element signature="n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#el-form#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#11655#12566#0" expanded="false" />
-                <element signature="e#12749#12782#0" expanded="false" />
-                <element signature="e#12799#12909#0" expanded="false" />
-                <element signature="e#12933#12989#0" expanded="false" />
-                <element signature="e#13013#13122#0" expanded="false" />
-                <element signature="e#13146#13312#0" expanded="false" />
-                <element signature="e#14513#15336#0" expanded="false" />
-                <element signature="e#15380#15466#0" expanded="false" />
-                <element signature="e#15512#15865#0" expanded="false" />
-                <element signature="e#15902#16039#0" expanded="false" />
-                <element signature="e#16089#16670#0" expanded="false" />
-                <element signature="e#16724#17737#0" expanded="false" />
-                <element signature="e#17795#18808#0" expanded="false" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#7;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#13057#13968#0" expanded="false" />
+                <element signature="e#14151#14184#0" expanded="false" />
+                <element signature="e#14201#14311#0" expanded="false" />
+                <element signature="e#14335#14391#0" expanded="false" />
+                <element signature="e#14415#14524#0" expanded="false" />
+                <element signature="e#14548#14714#0" expanded="false" />
+                <element signature="e#14738#15142#0" expanded="false" />
+                <element signature="e#15201#15243#0" expanded="false" />
+                <element signature="e#15272#15393#0" expanded="false" />
+                <element signature="e#16180#16536#0" expanded="false" />
+                <element signature="e#16595#17418#0" expanded="false" />
+                <element signature="e#17462#17548#0" expanded="false" />
+                <element signature="e#17594#17947#0" expanded="false" />
+                <element signature="e#17984#18121#0" expanded="false" />
+                <element signature="e#18171#18752#0" expanded="false" />
+                <element signature="e#18806#19819#0" expanded="false" />
+                <element signature="e#19877#20890#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -266,7 +267,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,13 +306,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nabox_chrome" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -381,24 +382,26 @@
       <workItem from="1617757709752" duration="6314000" />
       <workItem from="1617932735077" duration="596000" />
       <workItem from="1618189604948" duration="6448000" />
-      <workItem from="1618275443169" duration="661000" />
+      <workItem from="1618275443169" duration="5259000" />
+      <workItem from="1618362811505" duration="3151000" />
+      <workItem from="1618448761766" duration="592000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50758000" />
+    <option name="totallyTimeSpent" value="59099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15858799" sideWeight="0.45840707" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15858799" sideWeight="0.45132744" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15858799" sideWeight="0.5415929" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3852013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3852013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15858799" sideWeight="0.54867256" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -468,25 +471,30 @@
             <element signature="n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#11655#12566#0" expanded="false" />
-            <element signature="e#12749#12782#0" expanded="false" />
-            <element signature="e#12799#12909#0" expanded="false" />
-            <element signature="e#12933#12989#0" expanded="false" />
-            <element signature="e#13013#13122#0" expanded="false" />
-            <element signature="e#13146#13312#0" expanded="false" />
-            <element signature="e#14513#15336#0" expanded="false" />
-            <element signature="e#15380#15466#0" expanded="false" />
-            <element signature="e#15512#15865#0" expanded="false" />
-            <element signature="e#15902#16039#0" expanded="false" />
-            <element signature="e#16089#16670#0" expanded="false" />
-            <element signature="e#16724#17737#0" expanded="false" />
-            <element signature="e#17795#18808#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#7;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13057#13968#0" expanded="false" />
+            <element signature="e#14151#14184#0" expanded="false" />
+            <element signature="e#14201#14311#0" expanded="false" />
+            <element signature="e#14335#14391#0" expanded="false" />
+            <element signature="e#14415#14524#0" expanded="false" />
+            <element signature="e#14548#14714#0" expanded="false" />
+            <element signature="e#14738#15142#0" expanded="false" />
+            <element signature="e#15201#15243#0" expanded="false" />
+            <element signature="e#15272#15393#0" expanded="false" />
+            <element signature="e#16180#16536#0" expanded="false" />
+            <element signature="e#16595#17418#0" expanded="false" />
+            <element signature="e#17462#17548#0" expanded="false" />
+            <element signature="e#17594#17947#0" expanded="false" />
+            <element signature="e#17984#18121#0" expanded="false" />
+            <element signature="e#18171#18752#0" expanded="false" />
+            <element signature="e#18806#19819#0" expanded="false" />
+            <element signature="e#19877#20890#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -626,25 +634,30 @@
             <element signature="n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#11655#12566#0" expanded="false" />
-            <element signature="e#12749#12782#0" expanded="false" />
-            <element signature="e#12799#12909#0" expanded="false" />
-            <element signature="e#12933#12989#0" expanded="false" />
-            <element signature="e#13013#13122#0" expanded="false" />
-            <element signature="e#13146#13312#0" expanded="false" />
-            <element signature="e#14513#15336#0" expanded="false" />
-            <element signature="e#15380#15466#0" expanded="false" />
-            <element signature="e#15512#15865#0" expanded="false" />
-            <element signature="e#15902#16039#0" expanded="false" />
-            <element signature="e#16089#16670#0" expanded="false" />
-            <element signature="e#16724#17737#0" expanded="false" />
-            <element signature="e#17795#18808#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#7;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13057#13968#0" expanded="false" />
+            <element signature="e#14151#14184#0" expanded="false" />
+            <element signature="e#14201#14311#0" expanded="false" />
+            <element signature="e#14335#14391#0" expanded="false" />
+            <element signature="e#14415#14524#0" expanded="false" />
+            <element signature="e#14548#14714#0" expanded="false" />
+            <element signature="e#14738#15142#0" expanded="false" />
+            <element signature="e#15201#15243#0" expanded="false" />
+            <element signature="e#15272#15393#0" expanded="false" />
+            <element signature="e#16180#16536#0" expanded="false" />
+            <element signature="e#16595#17418#0" expanded="false" />
+            <element signature="e#17462#17548#0" expanded="false" />
+            <element signature="e#17594#17947#0" expanded="false" />
+            <element signature="e#17984#18121#0" expanded="false" />
+            <element signature="e#18171#18752#0" expanded="false" />
+            <element signature="e#18806#19819#0" expanded="false" />
+            <element signature="e#19877#20890#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,25 +797,30 @@
             <element signature="n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#11655#12566#0" expanded="false" />
-            <element signature="e#12749#12782#0" expanded="false" />
-            <element signature="e#12799#12909#0" expanded="false" />
-            <element signature="e#12933#12989#0" expanded="false" />
-            <element signature="e#13013#13122#0" expanded="false" />
-            <element signature="e#13146#13312#0" expanded="false" />
-            <element signature="e#14513#15336#0" expanded="false" />
-            <element signature="e#15380#15466#0" expanded="false" />
-            <element signature="e#15512#15865#0" expanded="false" />
-            <element signature="e#15902#16039#0" expanded="false" />
-            <element signature="e#16089#16670#0" expanded="false" />
-            <element signature="e#16724#17737#0" expanded="false" />
-            <element signature="e#17795#18808#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#7;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13057#13968#0" expanded="false" />
+            <element signature="e#14151#14184#0" expanded="false" />
+            <element signature="e#14201#14311#0" expanded="false" />
+            <element signature="e#14335#14391#0" expanded="false" />
+            <element signature="e#14415#14524#0" expanded="false" />
+            <element signature="e#14548#14714#0" expanded="false" />
+            <element signature="e#14738#15142#0" expanded="false" />
+            <element signature="e#15201#15243#0" expanded="false" />
+            <element signature="e#15272#15393#0" expanded="false" />
+            <element signature="e#16180#16536#0" expanded="false" />
+            <element signature="e#16595#17418#0" expanded="false" />
+            <element signature="e#17462#17548#0" expanded="false" />
+            <element signature="e#17594#17947#0" expanded="false" />
+            <element signature="e#17984#18121#0" expanded="false" />
+            <element signature="e#18171#18752#0" expanded="false" />
+            <element signature="e#18806#19819#0" expanded="false" />
+            <element signature="e#19877#20890#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -987,8 +1005,8 @@
     <entry file="file://$PROJECT_DIR$/src/api/naboxApp.js" />
     <entry file="file://$PROJECT_DIR$/src/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="277" column="30" lean-forward="false" selection-start-line="277" selection-start-column="30" selection-end-line="277" selection-end-column="30" />
+        <state relative-caret-position="345">
+          <caret line="600" column="19" lean-forward="false" selection-start-line="600" selection-start-column="19" selection-end-line="600" selection-end-column="19" />
           <folding>
             <element signature="n#el-collapse-item#0;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#el-collapse-item#1;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
@@ -997,25 +1015,30 @@
             <element signature="n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form#0;n#div#1;n#div#0;n#el-collapse-item#4;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#5;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#6;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#11655#12566#0" expanded="false" />
-            <element signature="e#12749#12782#0" expanded="false" />
-            <element signature="e#12799#12909#0" expanded="false" />
-            <element signature="e#12933#12989#0" expanded="false" />
-            <element signature="e#13013#13122#0" expanded="false" />
-            <element signature="e#13146#13312#0" expanded="false" />
-            <element signature="e#14513#15336#0" expanded="false" />
-            <element signature="e#15380#15466#0" expanded="false" />
-            <element signature="e#15512#15865#0" expanded="false" />
-            <element signature="e#15902#16039#0" expanded="false" />
-            <element signature="e#16089#16670#0" expanded="false" />
-            <element signature="e#16724#17737#0" expanded="false" />
-            <element signature="e#17795#18808#0" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#el-collapse-item#7;n#el-collapse#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13057#13968#0" expanded="false" />
+            <element signature="e#14151#14184#0" expanded="false" />
+            <element signature="e#14201#14311#0" expanded="false" />
+            <element signature="e#14335#14391#0" expanded="false" />
+            <element signature="e#14415#14524#0" expanded="false" />
+            <element signature="e#14548#14714#0" expanded="false" />
+            <element signature="e#14738#15142#0" expanded="false" />
+            <element signature="e#15201#15243#0" expanded="false" />
+            <element signature="e#15272#15393#0" expanded="false" />
+            <element signature="e#16180#16536#0" expanded="false" />
+            <element signature="e#16595#17418#0" expanded="false" />
+            <element signature="e#17462#17548#0" expanded="false" />
+            <element signature="e#17594#17947#0" expanded="false" />
+            <element signature="e#17984#18121#0" expanded="false" />
+            <element signature="e#18171#18752#0" expanded="false" />
+            <element signature="e#18806#19819#0" expanded="false" />
+            <element signature="e#19877#20890#0" expanded="false" />
           </folding>
         </state>
       </provider>

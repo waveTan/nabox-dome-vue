@@ -285,6 +285,41 @@
           </div>
         </div>
       </el-collapse-item>
+      <el-collapse-item title="hex签名" name="signHex">
+        <div class="info">
+          <div class="fl">
+            <h2>nabox .signHex(data)</h2>
+            <p>参数说明：</p>
+            <p>chain 必填(网络)</p>
+            <p>hex：必填</p>
+            <pre>
+              let data = {
+                chain: "NULS",
+                hex: "0x89D24A7b4cCB1b6f....AA2625Fe562bDd9A23260359",
+              }
+              let resData = await nabox.signHex(data);
+              console.log(resData);
+            </pre>
+          </div>
+          <div class="fl" style="width: 30rem">
+            <el-form :model="signHexForm" :rules="signHexRules" ref="signHexForm">
+              <el-form-item label="hex" prop="hex">
+                <el-input type="textarea" :rows="5" v-model="signHexForm.hex">
+                </el-input>
+              </el-form-item>
+              <el-form-item label="网络">
+                <el-select v-model="signHexForm.chain" placeholder="请选择签名网络">
+                  <el-option v-for="item of networkList" :label="item.name" :key="item.name" :value="item.name">
+                  </el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary" @click="submitSignHex('signHexForm')">hex签名</el-button>
+              </el-form-item>
+            </el-form>
+          </div>
+        </div>
+      </el-collapse-item>
     </el-collapse>
 
     <div class="font18 fW600">事件</div>
@@ -370,7 +405,24 @@
             {required: true, message: '请输入合约地址', trigger: 'change'}
           ],
         },
-        methodsList:[],//合约方法列表
+        methodsList: [],//合约方法列表
+
+        signHexForm: {
+          hex: '02009049766000008c0117020001f88d93a52edc7437da5e2977d27681f0fb1e6bab02000100a088658901000000000000000000000000000000000000000000000000000000089159a7cf6f535de8000117020001f88d93a52edc7437da5e2977d27681f0fb1e6bab020001000002648901000000000000000000000000000000000000000000000000000000000000000000000000',
+          chain: 'NULS'
+        },
+        signHexRules: {
+          hex: [
+            {required: true, message: '请输入hex', trigger: 'change'}
+          ],
+        },
+        networkList: [
+          {name: 'ETH'},
+          {name: 'Heco'},
+          {name: 'BSC'},
+          {name: 'NULS'},
+          {name: 'NERVE'},
+        ],//网络列表
       };
     },
     created() {
@@ -384,8 +436,8 @@
           console.log(val, old);
           let addressInfo = await getContract(val);
           console.log(addressInfo);
-          if(addressInfo.success){
-              this.methodsList = addressInfo.data.methods
+          if (addressInfo.success) {
+            this.methodsList = addressInfo.data.methods
           }
         }
       },
@@ -513,6 +565,28 @@
         });
       },
 
+      //hex 签名
+      async submitSignHex(formName) {
+        this.$refs[formName].validate(async (valid) => {
+          if (valid) {
+            //console.log(this.tradingForm);
+            let data = {
+              hex: this.signHexForm.hex,
+              chain: this.signHexForm.chain,
+            };
+            console.log(data);
+            try {
+              let resData = await nabox.signHex(data);
+              console.log(resData);
+            } catch (err) {
+              console.log(err)
+            }
+
+          } else {
+            return false;
+          }
+        });
+      },
 
     }
   }
